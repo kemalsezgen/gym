@@ -2,6 +2,8 @@ import bcrypt from 'bcryptjs';
 import User from '../models/User.js';
 import jwt from 'jsonwebtoken';
 
+import { handleError } from '../error.js';
+
 export const register = async (req, res) => {
   try {
     if (req.body.password) {
@@ -17,7 +19,15 @@ export const register = async (req, res) => {
       })
 
       await newUser.save();
-      res.status(201).json('New User Created');
+
+      const token = jwt.sign({ id: newUser._id }, process.env.SECRET);
+
+      const {password, ...otherData } = newUser._doc;
+
+      res.cookie('accessToken', token, { httpOnly: true })
+      .status(200)
+      .json(otherData);
+
     } else {
       res.status(403).json('please provide a password');
     }
@@ -26,36 +36,31 @@ export const register = async (req, res) => {
   }
 }
 
-export const login = async (req, res) => {
-   try {
+export const login = async (req, res, next) => {
+  try {
     const user = await User.findOne({
       email: req.body.email
     });
 
-    if(!user) {
-      return res.status(404).json('no user found');
-    }
+    if (!user) {return next(handleError(404, 'User not found'))}
 
     const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);
 
-    if(!isPasswordCorrect) {
-      return res.status(400).json('wrong password');
-    }
+    if (!isPasswordCorrect) {return next(handleError(400, 'Password incorrect'))}
 
-    const payload = {
-      id: user._id
-    }
+    const payload = {id: user._id}
 
-    const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '1d'});
+    const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '1d' });
+
+    const {password, ...otherData} = user._doc;
+
     res.cookie('accessToken', token, {
       httpOnly: true
-    }).status(200).json({
-      email: user.email
-    })
+    }).status(200).json({otherData})
 
-   } catch(err) {
+  } catch (err) {
     res.status(500).json(err.message);
-   }
+  }
 }
 
 export const logout = (req, res) => {
