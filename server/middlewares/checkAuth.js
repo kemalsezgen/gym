@@ -1,18 +1,17 @@
 import jwt from 'jsonwebtoken';
+import { handleError } from '../error.js';
 
 export const checkAuth = (req, res, next) => {
   const token = req.cookies.accessToken;
   if (!token) {
-    return res.status(401).json('no token found');
+    return next(handleError(401, 'You are not authenticated'));
   }
 
-  jwt.verify(token, process.env.SECRET, (err, payload) => {
+  jwt.verify(token, process.env.SECRET, (err, user) => {
     if (err) {
-      return res.status(403).json('Invalid token');
+      return next(handleError(403, 'Invalid token'));
     }
-    req.user = {
-      id: payload.id
-    }
+    req.user = user;
     next();
   })
 }

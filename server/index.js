@@ -7,8 +7,8 @@ doteenv.config()
 import cookieParser from "cookie-parser";
 
 //import postRoutes from "./routes/PostRoutes.js"
-//import userRoutes from "./routes/UserRoutes.js"
 import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/user.js"
 import privateRoutes from "./routes/private.js";
 
 const app = express();
@@ -27,6 +27,7 @@ app.use(cookieParser());
 const PORT = process.env.PORT || 5000;
 
 app.use('/auth', authRoutes);
+app.use('/users', userRoutes);
 app.use('/private', privateRoutes);
 
 // MongoDB connection
