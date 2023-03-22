@@ -11,6 +11,13 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    followers: { type: Array, defaultValue: [] },
+    following: { type: Array, defaultValue: [] },
     type: {
         type: String,
         enum: ['pt', 'member'],
@@ -24,7 +31,8 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
-});
+    }},
+    { timestamps: true }
+);
 
 export default mongoose.model("User", UserSchema);
