@@ -6,10 +6,10 @@ import * as doteenv from 'dotenv';
 doteenv.config()
 import cookieParser from "cookie-parser";
 
-//import postRoutes from "./routes/PostRoutes.js"
+//routes 
+import postRoutes from "./routes/posts.js"
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/user.js"
-import privateRoutes from "./routes/private.js";
 
 const app = express();
 
@@ -28,7 +28,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
-app.use('/private', privateRoutes);
+app.use('/posts', postRoutes);
 
 // MongoDB connection
 mongoose.connect(process.env.DATABASE_URL)
