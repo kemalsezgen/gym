@@ -1,37 +1,42 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+
+import { Link, useNavigate } from 'react-router-dom';
+
+import { useDispatch } from 'react-redux';
+import { loginStart, loginSuccess, loginFailed } from '../redux/userSlice';
 
 const Register = () => {
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [userType, setUserType] = useState('');
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [username, setUsername] = useState('');
+  const [type, setType] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const clearForm = () => {
-    setFirstName('');
-    setLastName('');
-    setUserType('');
+    setName('');
+    setSurname('');
+    setUsername('');
+    setType('');
     setEmail('');
     setPassword('');
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    dispatch(loginStart());
     try {
-      const response = await axios.post('http://localhost:5000/auth/register', {
-        name: firstName,
-        surname: lastName,
-        type: userType,
-        email: email,
-        password: password
-      }, {withCredentials: true});
+      const response = await axios.post('/auth/register', { name, surname, username, type, email, password });
+      dispatch(loginSuccess(response.data));
+      navigate('/');
       clearForm();
-      console.log(response);
     } catch (error) {
-      console.error('Error:', error);
+      dispatch(loginFailed());
     }
   }
 
@@ -40,18 +45,23 @@ const Register = () => {
       <h2>Register Account</h2>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>
-          <label htmlFor='firstName'>First Name</label>
-          <input value={firstName} type='text' name='firstName' placeholder='First Name' onChange={e => setFirstName(e.target.value)}/>
+          <label htmlFor='name'>First Name</label>
+          <input value={name} type='text' name='name' placeholder='First Name' onChange={e => setName(e.target.value)}/>
         </div>
 
         <div>
-          <label htmlFor='lastName'>Last Name</label>
-          <input value={lastName} type='text' name='lastName' placeholder='Last Name' onChange={e => setLastName(e.target.value)}/>
+          <label htmlFor='surname'>Last Name</label>
+          <input value={surname} type='text' name='surname' placeholder='Last Name' onChange={e => setSurname(e.target.value)}/>
+        </div>
+
+        <div>
+          <label htmlFor='username'>Username</label>
+          <input value={username} type='text' name='username' placeholder='Username' onChange={e => setUsername(e.target.value)}/>
         </div>
 
         <div>
           <label htmlFor='type'>User Type</label>
-          <select value={userType} name="usertype" onChange={e => setUserType(e.target.value)}>
+          <select value={type} name="type" onChange={e => setType(e.target.value)}>
             <option value="member">Member</option>
             <option value="pt">Personal Trainer</option>
           </select>
@@ -70,7 +80,6 @@ const Register = () => {
           Already have an account? <Link to='/login'>Login</Link>
         </span>
       </form>
-      <button onClick={clearForm}>Clear</button>
     </div>
   )
 }

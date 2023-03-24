@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 import { loginStart, loginSuccess, loginFailed } from '../redux/userSlice';
@@ -12,6 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +20,7 @@ const Login = () => {
     try {
       const response = await axios.post('/auth/login', {email, password});
       dispatch(loginSuccess(response.data));
-      console.log("giriş yapıldı.")
+      navigate("/");
     } catch (error) {
       dispatch(loginFailed());
     }
