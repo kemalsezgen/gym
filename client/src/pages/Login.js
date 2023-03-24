@@ -1,34 +1,29 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
+
+import { Link } from 'react-router-dom';
+
+import { useDispatch } from 'react-redux';
+import { loginStart, loginSuccess, loginFailed } from '../redux/userSlice';
 
 const Login = () => {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const dispatch = useDispatch();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    dispatch(loginStart());
     try {
-      const response = await axios.post('http://localhost:5000/auth/login', {
-        email: email,
-        password: password
-      }, {withCredentials: true});
-      console.log('Response:', response.data);
-      setIsLoggedIn(true);
-      console.log(isLoggedIn)
-      // Handle successful login
+      const response = await axios.post('/auth/login', {email, password});
+      dispatch(loginSuccess(response.data));
+      console.log("giriş yapıldı.")
     } catch (error) {
-      console.error('Error:', error);
-      // Handle login error
+      dispatch(loginFailed());
     }
   };
-
-  if (isLoggedIn) {
-    return <Navigate to="/" />
-  }
 
   return (
     <div className='container'>
