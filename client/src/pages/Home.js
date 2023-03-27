@@ -1,9 +1,23 @@
-import React from 'react'
+import React from "react";
+import Login from './Login.js';
+
+import { useSelector } from "react-redux";
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const { currentUser } = useSelector((state) => state.user);
+  console.log(currentUser);
 
-export default Home
+  return (
+    <>
+      {!currentUser ? (
+        <Login />
+      ) : (
+        <div>
+          Welcome {`${currentUser.otherData.username}`}
+        </div>
+      )}
+    </>
+  );
+};
+
+export default Home;
