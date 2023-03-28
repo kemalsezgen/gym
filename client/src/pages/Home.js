@@ -1,5 +1,6 @@
 import React from "react";
 import Login from './Login.js';
+import Sidebar from "../components/Sidebar";
 
 import { useSelector } from "react-redux";
 
@@ -13,7 +14,7 @@ const Home = () => {
         <Login />
       ) : (
         <div>
-          Welcome {`${currentUser.otherData.username}`}
+          <Sidebar />
         </div>
       )}
     </>

@@ -1,8 +1,14 @@
 import React from 'react'
+import { useDispatch, useSelector } from "react-redux";
 
 const Profile = () => {
+
+  const { currentUser } = useSelector((state) => state.user);
+
   return (
-    <div>Profile</div>
+    <div>
+      Welcome {`${currentUser.otherData.username}`}
+    </div>
   )
 }
 
