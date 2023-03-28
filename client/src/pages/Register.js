@@ -11,7 +11,7 @@ const Register = () => {
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [username, setUsername] = useState('');
-  const [type, setType] = useState('');
+  const [type, setType] = useState('member');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
