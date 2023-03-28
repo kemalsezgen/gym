@@ -18,15 +18,6 @@ const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const clearForm = () => {
-    setName('');
-    setSurname('');
-    setUsername('');
-    setType('');
-    setEmail('');
-    setPassword('');
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(loginStart());
@@ -34,7 +25,6 @@ const Register = () => {
       const response = await axios.post('/auth/register', { name, surname, username, type, email, password });
       dispatch(loginSuccess(response.data));
       navigate('/');
-      clearForm();
     } catch (error) {
       dispatch(loginFailed());
     }

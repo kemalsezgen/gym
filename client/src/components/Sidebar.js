@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userSlice";
 import { AiFillHome } from 'react-icons/ai'
+import { CgGym } from 'react-icons/cg';
+import { AiOutlineUser } from 'react-icons/ai'
 
 const Sidebar = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -27,30 +29,24 @@ const Sidebar = () => {
         </Link>
         <Link to="/trainers">
           <div>
-            <AiFillHome fontSize="large" />
+            <CgGym fontSize="large" />
             <p>Trainers</p>
           </div>
         </Link>
-        <Link to={`/profile/${currentUser.otherData._id}`}>
+        <Link to={`/profile/${currentUser._id}`}>
           <div>
-            <AiFillHome fontSize="large" />
+            <AiOutlineUser fontSize="large" />
             <p>Profile</p>
           </div>
         </Link>
       </div>
       <div className="flex justify-between">
         <div>
-          <p className="font-bold">{currentUser.username}</p>
-          <p className="font-bold">@{currentUser.username}</p>
+          <p>welcome {currentUser.username}</p>
         </div>
         <div>
           <Link to="login">
-            <button
-              className="bg-red-500 px-4 py-2 text-white rounded-full"
-              onClick={handleLogout}
-            >
-              Logout
-            </button>
+            <button onClick={handleLogout}>Logout</button>
           </Link>
         </div>
       </div>
