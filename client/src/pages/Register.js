@@ -11,21 +11,12 @@ const Register = () => {
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [username, setUsername] = useState('');
-  const [type, setType] = useState('');
+  const [type, setType] = useState('member');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const clearForm = () => {
-    setName('');
-    setSurname('');
-    setUsername('');
-    setType('');
-    setEmail('');
-    setPassword('');
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,7 +25,6 @@ const Register = () => {
       const response = await axios.post('/auth/register', { name, surname, username, type, email, password });
       dispatch(loginSuccess(response.data));
       navigate('/');
-      clearForm();
     } catch (error) {
       dispatch(loginFailed());
     }

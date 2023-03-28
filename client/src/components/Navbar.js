@@ -1,6 +1,9 @@
 import React from 'react'
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
+
+  const { currentUser } = useSelector((state) => state.user);
 
   return (
     <nav className='nav'>
@@ -11,6 +14,13 @@ export default function Navbar() {
         <li>
           <a href='/trainers'>Trainers</a>
         </li>
+        {
+          currentUser ? (
+            <li>
+              <a href={`/profile/${currentUser._id}`}>{`${currentUser.name}`}</a>
+            </li>
+          ) : null
+        }
       </ul>
     </nav>
   )

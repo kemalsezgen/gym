@@ -7,7 +7,7 @@ const Profile = () => {
 
   return (
     <div>
-      Welcome {`${currentUser.otherData.username}`}
+      Welcome {`${currentUser.username}`}
     </div>
   )
 }
