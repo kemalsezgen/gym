@@ -1,9 +1,24 @@
-import React from 'react'
+import React from "react";
+import Login from './Login.js';
+import Sidebar from "../components/Sidebar";
+
+import { useSelector } from "react-redux";
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const { currentUser } = useSelector((state) => state.user);
+  console.log(currentUser);
 
-export default Home
+  return (
+    <>
+      {!currentUser ? (
+        <Login />
+      ) : (
+        <div>
+          <Sidebar />
+        </div>
+      )}
+    </>
+  );
+};
+
+export default Home;

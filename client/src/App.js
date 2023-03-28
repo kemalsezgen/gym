@@ -3,16 +3,19 @@ import "./App.css"
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 // pages
-import Home from "./pages/Home.js";
+import Home from "./pages/Home";
 import Profile from "./pages/Profile.js";
 import Trainers from "./pages/Trainers.js";
 import Login from "./pages/Login.js";
 import Register from "./pages/Register.js";
 
+//components
+import Navbar from "./components/Navbar";
+
 const Layout = () => {
   return (
     <div>
-      <h1 class="text-3xl font-bold underline">Navbar</h1>
+      <Navbar />
       <Outlet></Outlet>
     </div>
   );
