@@ -31,45 +31,47 @@ const Register = () => {
   }
 
   return (
-    <div className='container'>
-      <h2>Register Account</h2>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <label htmlFor='name'>First Name</label>
-          <input value={name} type='text' name='name' placeholder='First Name' onChange={e => setName(e.target.value)}/>
-        </div>
+    <div className='login-container'>
+      <div className='welcomeMessage'>
+        <h2>Register</h2>
+      </div>
+      <div className='loginForm'>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <div className='formInput'>
+            <input value={name} type='text' name='name' placeholder='First Name' onChange={e => setName(e.target.value)} />
+          </div>
 
-        <div>
-          <label htmlFor='surname'>Last Name</label>
-          <input value={surname} type='text' name='surname' placeholder='Last Name' onChange={e => setSurname(e.target.value)}/>
-        </div>
+          <div className='formInput'>
+            <input value={surname} type='text' name='surname' placeholder='Last Name' onChange={e => setSurname(e.target.value)} />
+          </div>
 
-        <div>
-          <label htmlFor='username'>Username</label>
-          <input value={username} type='text' name='username' placeholder='Username' onChange={e => setUsername(e.target.value)}/>
-        </div>
+          <div className='formInput'>
+            <input value={username} type='text' name='username' placeholder='Username' onChange={e => setUsername(e.target.value)} />
+          </div>
 
-        <div>
-          <label htmlFor='type'>User Type</label>
-          <select value={type} name="type" onChange={e => setType(e.target.value)}>
-            <option value="member">Member</option>
-            <option value="pt">Personal Trainer</option>
-          </select>
-        </div>
+          <div className='formInput'>
+            <select value={type} name="type" onChange={e => setType(e.target.value)}>
+              <option value="member">Member</option>
+              <option value="pt">Personal Trainer</option>
+            </select>
+          </div>
 
-        <div>
-          <label htmlFor='email'>Email</label>
-          <input value={email} type='email' name='email' placeholder='Email' onChange={e => setEmail(e.target.value)}/>
-        </div>
-        <div>
-          <label htmlFor='password'>Password</label>
-          <input value={password} type='password' name='password' placeholder='Password' onChange={e => setPassword(e.target.value)}/>
-        </div>
-        <button type='submit'>Register</button>
-        <span>
-          Already have an account? <Link to='/login'>Login</Link>
-        </span>
-      </form>
+          <div className='formInput'>
+            <input value={email} type='email' name='email' placeholder='Email' onChange={e => setEmail(e.target.value)} />
+          </div>
+
+          <div className='formInput'>
+            <input value={password} type='password' name='password' placeholder='Password' onChange={e => setPassword(e.target.value)} />
+          </div>
+
+          <div className='loginLower'>
+            <button className='loginButton' type='submit'>Register</button>
+            <div className='redirectText'>
+              <p>Already have an account? <span><Link to='/login'>Login</Link></span></p>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }
