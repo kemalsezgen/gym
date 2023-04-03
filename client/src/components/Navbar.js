@@ -14,6 +14,9 @@ export default function Navbar() {
         <li>
           <a href='/trainers'>Trainers</a>
         </li>
+        <li>
+          <a href='/about'>Who We Are</a>
+        </li>
         {
           currentUser ? (
             <li>
