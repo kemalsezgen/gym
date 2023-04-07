@@ -1,10 +1,10 @@
 import express from "express";
-import { getUser, update, deleteUser, follow, unFollow } from "../controllers/user.js";
+import { getUsers, getUser, update, deleteUser, follow, unFollow } from "../controllers/user.js";
 import { checkAuth } from "../middlewares/checkAuth.js";
 
 const router = express.Router();
 
-
+router.get('/', getUsers);
 router.put("/:id", checkAuth, update);
 router.get("/find/:id", getUser);
 router.delete("/:id", checkAuth, deleteUser);

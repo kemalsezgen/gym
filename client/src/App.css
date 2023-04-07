@@ -1,141 +1,232 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #777;
-    margin: 0;
+  background-color: #777;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.outlet {
+  padding-bottom: 230px;
 }
 
 .nav {
-    background-color: #333;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    gap: 2rem;
-    padding: 0 1rem;
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 0 1rem;
 }
 
 .site-title {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 .nav ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    font-size: 1.25rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  font-size: 1.25rem;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 .nav a {
-    color: inherit;
-    text-decoration: none;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0.25rem;
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
 }
 
 .nav li:hover {
-    background-color: #777;
+  background-color: #777;
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0 0 50px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 230px;
+  position: fixed;
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0 0 50px;
+  bottom: 0;
+  width: 100%;
+  height: 230px;
 }
 
 .footer-row {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .footer-col {
-    width: 33%;
-    padding: 0 15px;
+  width: 33%;
+  padding: 0 15px;
 }
 
 .footer-col a {
-    display: block;
-    margin-top: 10px;
-    text-decoration: none;
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
 }
 
 .footer-col h2 {
-    font-size: 20px;
-    color: #fff;
-    text-transform: capitalize;
-    margin-bottom: 20px;
-    font-weight: 500;
-    position: relative;
+  font-size: 20px;
+  color: #fff;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  font-weight: 500;
+  position: relative;
 }
 
 .container-footer a {
-    color: #fff;
+  color: #fff;
 }
 
 .social-accounts {
-    display: flex;
-    justify-content: space-between;
-    max-width: 200px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 200px;
 }
 
 .social-accounts a {
-    font-size: 2em;
+  font-size: 2em;
 }
 
 .login-container {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid black;
-    border-radius: 20px;
-    width: 400px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 400px;
 }
 
 .welcomeMessage {
-    text-align: center;
+  text-align: center;
 }
 
 .loginForm {
-    text-align: center;
+  text-align: center;
 }
 
 .loginLower {
-    margin-top: 20px;
-    text-align: center;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .loginButton {
-    width: 100px;
-    height: 30px;
+  width: 100px;
+  height: 30px;
 }
 
 .formInput {
-    padding: 10px;
+  padding: 10px;
 }
 
 .formInput input {
-    padding: 8px;
-    font-size: 16px;
-    width: 250px;
+  padding: 8px;
+  font-size: 16px;
+  width: 250px;
 }
 
 .formInput select {
-    padding: 8px;
-    font-size: 16px;
-    width: 250px;
+  padding: 8px;
+  font-size: 16px;
+  width: 250px;
+}
+
+/* Trainer Card */
+
+.trainerCard {
+  width: 300px;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #333;
+  background: #333;
+  flex: 0 1 calc(25% - 1em); /* 4 card'ın sığabileceği genişlik */
+  margin-bottom: 1em;
+}
+
+.trainerPhoto {
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+}
+
+.trainerPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardText {
+  padding: 20px;
+  border: 1px solid red;
+}
+
+.cardText h3 {
+  margin: 0;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.653);
+}
+
+.cardText hr {
+  border: none;
+  height: 1px;
+  background-color: black;
+  margin: 10px 0;
+}
+
+.cardText p {
+  margin: 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.653);
+}
+
+/* Trainers */ 
+
+.trainers-container {
+  max-width: 1300px;
+  width: 100%;
+  margin: auto;
+}
+
+section {
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 10px solid purple;
+}
+
+.trainers {
+  float: left;
+}
+
+.trainerCard {
+  float: left;
+  margin-right: 10px;
+}
+
+.trainerCard:last-child {
+  margin-right: 0;
+}
+
+.trainers-cards-grid {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }

@@ -18,7 +18,9 @@ const Layout = () => {
   return (
     <div>
       <Navbar />
-      <Outlet></Outlet>
+      <div className="outlet">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );
@@ -42,9 +44,7 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <RouterProvider router={router}>
-
-    </RouterProvider>
+    <RouterProvider router={router} />
   );
 };
 

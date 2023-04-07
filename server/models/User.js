@@ -23,6 +23,10 @@ const UserSchema = new Schema({
         enum: ['pt', 'member'],
         required: true
     },
+    description: {
+        type: String,
+        required: false,
+    },
     email: {
         type: String,
         required: true,
