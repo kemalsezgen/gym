@@ -257,3 +257,19 @@ section {
     width: 50%;
   }
 }
+
+/* Profile */
+
+.profile-header {
+  max-height: 400px;
+  border: 2px solid purple;
+  text-align: center;
+  padding: 30px;
+}
+
+.profile-header img {
+  height: 300px;
+  width: 300px;
+  border: 7px solid black;
+  border-radius: 30%;
+}
