@@ -12,7 +12,7 @@ import Register from "./pages/Register.js";
 
 //components
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+//import Footer from "./components/Footer";
 
 const Layout = () => {
   return (
@@ -21,7 +21,6 @@ const Layout = () => {
       <div className="outlet">
         <Outlet />
       </div>
-      <Footer />
     </div>
   );
 }
