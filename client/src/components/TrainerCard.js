@@ -8,7 +8,7 @@ const TrainerCard = ({ trainer }) => {
             alt='trainer' />
         </div>
         <div className='cardText'>
-            <h3>{trainer.name}</h3>
+            <p><a href={`/profile/${trainer._id}`}>{trainer.name}</a></p>
             <hr/>
             <p>{trainer.description}</p>
         </div>
