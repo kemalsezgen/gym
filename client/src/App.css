@@ -199,6 +199,13 @@ footer {
   color: rgba(255, 255, 255, 0.653);
 }
 
+.cardText a{
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.653);
+  text-decoration: none;
+  
+}
+
 .cardText hr {
   border: none;
   height: 1px;
@@ -261,10 +268,9 @@ section {
 /* Profile */
 
 .profile-header {
-  max-height: 400px;
   border: 2px solid purple;
   text-align: center;
-  padding: 30px;
+  padding: 20px;
 }
 
 .profile-header img {
@@ -282,4 +288,59 @@ section {
 
 .profile-description p {
   font-size: 20px;
+}
+
+.subscribe-container {
+  border: 3px solid #444;
+  margin-bottom: 10px;
+  display: inline-block;
+  padding: 10px;
+}
+
+.subscribe-container p {
+  display: inline-block;
+  font-size: 16px;
+}
+
+.edit-button {
+  width: 100px;
+  height: 30px;
+  background-color: beige;
+  border-radius: 10%;
+  color: #333;
+}
+
+.edit-button:hover {
+  background-color: #333;
+  color: beige;
+}
+
+.follow-button {
+  width: 100px;
+  height: 30px;
+  border-radius: 10%;
+  background-color: #1c1414;
+  color: beige;
+}
+
+.follow-button:hover {
+  background-color: beige;
+  color: #1c1414;
+}
+
+/* PostCard */
+
+.post-card {
+  max-width: 400px;
+  border: 4px solid yellow
+}
+
+.post-image {
+  width: 100%;
+}
+
+.post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

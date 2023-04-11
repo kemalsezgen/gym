@@ -38,6 +38,9 @@ export const userSlice = createSlice({
         state.currentUser.following.push(action.payload);
       }
     },
+    editProfile: (state, action) => {
+      state.currentUser.description = action.payload;
+    }
   },
 });
 
@@ -48,6 +51,7 @@ export const {
   logout,
   changeProfile,
   following,
+  editProfile,
 } = userSlice.actions;
 
 export default userSlice.reducer;
