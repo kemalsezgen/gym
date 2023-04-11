@@ -72,28 +72,27 @@ const Profile = () => {
           <img src={userProfile.photo ? userProfile.photo : 'https://images.unsplash.com/photo-1620371350502-999e9a7d80a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=740&q=80'} alt='trainer' />
           <h2>{toCamelCase(userProfile.name) + " " + toCamelCase(userProfile.surname)}</h2>
           <div className='subscribe-container'>
-            <p>{`${userProfile.followers.length} abone`}</p>
-            <p>{`${userProfile.following.length} takip`}</p>
-            <div>
+            <p>{`${userProfile.followers.length} abone - ${userProfile.following.length} takip`}</p>
+          </div>
+          <div>
               {currentUser._id === id ? (
-                <button className="" onClick={() => setOpen(true)}>
+                <button className="edit-button" onClick={() => setOpen(true)}>
                   Edit Profile
                 </button>
               ) : currentUser.following.includes(id) ? (
-                <button className="" onClick={handleFollow}>
-                  Following
+                <button className="follow-button" onClick={handleFollow}>
+                  Unfollow
                 </button>
               ) : (
-                <button className="" onClick={handleFollow}>
+                <button className="follow-button" onClick={handleFollow}>
                   Follow
                 </button>
               )}
             </div>
-          </div>
         </div>
         <div className='profile-body'>
           <div className='profile-description'>
-            <p>{currentUser.description ? currentUser.description : "deneme açıklama"}</p>
+            <p>{userProfile.description ? userProfile.description : "deneme açıklama"}</p>
           </div>
           <div className='profile-posts'>
             {posts.map((post, id) => <PostCard post={post} key={id} />)}
