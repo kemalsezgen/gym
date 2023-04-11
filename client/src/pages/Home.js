@@ -1,8 +1,8 @@
 import React from "react";
-import Login from './Login.js';
-import Sidebar from "../components/Sidebar";
-
 import { useSelector } from "react-redux";
+
+import Login from './Login.js';
+import { toCamelCase } from "../utils/camelCase.js";
 
 const Home = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -14,7 +14,7 @@ const Home = () => {
         <Login />
       ) : (
         <div>
-          <Sidebar />
+          {`Hey ${toCamelCase(currentUser.name)}, welcome to GYM.`}
         </div>
       )}
     </>
