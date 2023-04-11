@@ -1,9 +1,18 @@
 import React from 'react'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
+import { logout } from "../redux/userSlice";
 
 export default function Navbar() {
 
   const { currentUser } = useSelector((state) => state.user);
+
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   return (
     <nav className='nav'>
@@ -11,16 +20,27 @@ export default function Navbar() {
         KEMAL GYM
       </a>
       <ul>
-        <li>
-          <a href='/trainers'>Trainers</a>
-        </li>
+        {
+          currentUser ? (
+            <li>
+            <a href='/trainers'>Trainers</a>
+          </li>
+          ) : null
+        }
         <li>
           <a href='/about'>Who We Are</a>
         </li>
         {
           currentUser ? (
             <li>
-              <a href={`/profile/${currentUser._id}`}>{`${currentUser.name}`}</a>
+              <a id="user-name" href={`/profile/${currentUser._id}`}>{`${currentUser.name}`}</a>
+              <ul>
+                <li>
+                <Link to="login">
+                  <a href='/' onClick={handleLogout}>Çıkış yap</a>
+                </Link>
+                </li>
+              </ul>
             </li>
           ) : null
         }

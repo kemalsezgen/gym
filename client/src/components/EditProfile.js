@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-import { changeProfile, logout, editProfile } from "../redux/userSlice";
+import { logout, editProfile } from "../redux/userSlice";
 import { useNavigate } from "react-router-dom";
 
 const EditProfile = ({ setOpen }) => {
   const { currentUser } = useSelector((state) => state.user);
-  const [description, setDescription] = useState("321321");
+  const [description, setDescription] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleDelete = async () => {
     const deleteProfile = await axios.delete(`/users/${currentUser._id}`);
+    console.log("profile deleted", deleteProfile)
     dispatch(logout());
     navigate("/login");
   };
