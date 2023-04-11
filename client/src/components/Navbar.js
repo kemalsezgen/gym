@@ -36,9 +36,7 @@ export default function Navbar() {
               <a id="user-name" href={`/profile/${currentUser._id}`}>{`${currentUser.name}`}</a>
               <ul>
                 <li>
-                <Link to="login">
                   <a href='/' onClick={handleLogout}>Çıkış yap</a>
-                </Link>
                 </li>
               </ul>
             </li>
