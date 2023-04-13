@@ -8,7 +8,7 @@ import EditProfile from "../components/EditProfile";
 import CreatePost from '../components/CreatePost';
 import { following } from "../redux/userSlice"
 
-const NewProfile = () => {
+const Profile = () => {
 
   const { currentUser } = useSelector((state) => state.user);
   const [isLoading, setLoading] = useState(true);
@@ -119,4 +119,4 @@ const NewProfile = () => {
 
 }
 
-export default NewProfile
+export default Profile

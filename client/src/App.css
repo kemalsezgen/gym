@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html, body {
@@ -218,32 +220,31 @@ footer {
   object-fit: cover;
 }
 
-.cardText {
+.trainer-cardText {
   padding: 20px;
   border: 1px solid red;
 }
 
-.cardText h3 {
+.trainer-cardText h3 {
   margin: 0;
   font-size: 24px;
   color: rgba(255, 255, 255, 0.653);
 }
 
-.cardText a{
+.trainer-cardText a{
   font-size: 24px;
   color: rgba(255, 255, 255, 0.653);
   text-decoration: none;
-  
 }
 
-.cardText hr {
+.trainer-cardText hr {
   border: none;
   height: 1px;
   background-color: black;
   margin: 10px 0;
 }
 
-.cardText p {
+.trainer-cardText p {
   margin: 0;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.653);
@@ -320,12 +321,6 @@ section {
   font-size: 20px;
 }
 
-.profile-posts {
-  border: 2px solid black;
-  display: flex;
-  justify-content: space-evenly;
-}
-
 .subscribe-container {
   border: 3px solid #444;
   margin-bottom: 10px;
@@ -365,23 +360,6 @@ section {
 .follow-button:hover {
   background-color: beige;
   color: #1c1414;
-}
-
-/* PostCard */
-
-.post-card {
-  max-width: 400px;
-  border: 4px solid yellow
-}
-
-.post-image {
-  width: 100%;
-}
-
-.post-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 /* Create Post Modal */
@@ -435,7 +413,8 @@ body.active-modal {
   padding: 5px 7px;
 }
 
-/* New Profile */
+/* Profile */
+
 .profile-container {
   margin-top: 72px;
   max-width: 1024px;
@@ -445,7 +424,7 @@ body.active-modal {
   border: 1px solid #ccc;
 }
 
-main {
+.grid-container {
   display: grid;
   grid-template-areas: 
     "profileTop profileTop"
@@ -466,6 +445,7 @@ main {
 
 .descriptions {
   grid-area: descriptions; 
+  word-break: break-word;
 }
 
 .posts {
@@ -515,3 +495,44 @@ main {
   border-bottom: 1px solid white;
   padding-bottom: 10px;
 }
+
+/* PostCard */
+
+.post-card {
+  width: 80%;
+  height: 144px;
+  border: solid 2px white;
+  margin-left: 10%;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas: "postContent postContent postContent postContent postImage";
+}
+
+.post-content {
+  grid-area: postContent;
+  word-break: break-word;
+  margin: 10px;
+}
+
+.post-content h2 {
+  margin: 10px 0;
+}
+
+.post-image {
+  grid-area: postImage;
+  width: 100%;
+}
+
+.post-image img {
+  width: 100%;
+  height: 140px;
+  object-fit:cover;
+  padding: 10px;
+  border: 5px solid darkblue;
+}
+
+.post-card:last-child {
+  margin-bottom: 0;
+}
+
