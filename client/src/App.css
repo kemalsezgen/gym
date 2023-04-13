@@ -352,11 +352,14 @@ section {
 }
 
 .follow-button {
-  width: 100px;
+  width: 200px;
   height: 30px;
   border-radius: 10%;
   background-color: #1c1414;
   color: beige;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+
 }
 
 .follow-button:hover {
@@ -430,4 +433,85 @@ body.active-modal {
   top: 10px;
   right: 10px;
   padding: 5px 7px;
+}
+
+/* New Profile */
+.profile-container {
+  margin-top: 72px;
+  max-width: 1024px;
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ccc;
+}
+
+main {
+  display: grid;
+  grid-template-areas: 
+    "profileTop profileTop"
+    "posts posts";
+}
+
+.profile-top {
+  grid-area: profileTop;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:  
+    "profilePhoto descriptions"
+}
+
+.profilePhoto {
+  grid-area: profilePhoto; 
+}
+
+.descriptions {
+  grid-area: descriptions; 
+}
+
+.posts {
+  grid-area: posts;
+}
+
+#profile-photo-new img {
+  height: 360px;
+  width: 100%;
+  object-fit: cover;
+  border: 10px solid #2d0606;
+  margin-bottom: 10px;
+}
+
+#profile-description-new {
+  padding: 20px;
+}
+
+.subscribers-button p {
+  margin: 0;
+  font-size: 24px;
+  color: #3f1c1c;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.subscribers-button button {
+  font-size: 16px;
+}
+
+.subscribers-button {
+  text-align: center;
+}
+
+.descriptions h2 {
+  text-align: center;
+  font-size: 32px;
+  text-transform: capitalize;
+}
+
+.descriptions p {
+  font-size: 24px;
+  letter-spacing: 0.3px;
+}
+
+.profile-top {
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
 }
