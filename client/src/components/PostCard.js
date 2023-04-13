@@ -1,18 +1,16 @@
 import React from 'react'
 
-const PostCard = ({post}) => {
+const PostCard = ({ post }) => {
   return (
     <div className='post-card'>
-      <div className='post-image'>
-        <img src={post.image ? post.image : 'https://images.unsplash.com/photo-1620371350502-999e9a7d80a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=740&q=80'} alt='trainer' />
-      </div>
-      <div className='cardText'>
-        <h3>{post.title}</h3>
-        <hr />
-        <p>{post.body}</p>
-        <hr />
-        <p>{post.likes.length} likes</p>
-      </div>
+        <div className='post-content'>
+          <p className='post-time'>{post.createdAt}</p>
+          <h2>{post.title}</h2>
+          <p>{post.body.length > 200 ? post.body.substring(0, 200) + "..." : post.body}</p>
+        </div>
+        <div className='post-image'>
+          <img src={post.image ? post.image : 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'} alt='post' />
+        </div>
     </div>
   )
 }
