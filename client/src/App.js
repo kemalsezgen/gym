@@ -9,6 +9,7 @@ import About from "./pages/About.js";
 import Trainers from "./pages/Trainers.js";
 import Login from "./pages/Login.js";
 import Register from "./pages/Register.js";
+import Post from "./components/Post.js";
 
 //components
 import Navbar from "./components/Navbar";
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/profile/:id", element: <Profile /> },
+      { path: "/post/:id", element: <Post />},
       { path: "/trainers", element: <Trainers /> },
       { path: "/about", element: <About />},
       { path: "/login", element: <Login />},

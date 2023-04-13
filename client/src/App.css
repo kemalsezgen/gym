@@ -448,6 +448,10 @@ body.active-modal {
   word-break: break-word;
 }
 
+.descriptions h2 {
+  margin: 10px 0;
+}
+
 .posts {
   grid-area: posts;
 }
@@ -517,6 +521,15 @@ body.active-modal {
 
 .post-content h2 {
   margin: 10px 0;
+}
+
+.post-content a {
+  text-decoration: none;
+  color: black;
+}
+
+.post-content a:visited {
+  color: black;
 }
 
 .post-image {
