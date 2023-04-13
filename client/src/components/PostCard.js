@@ -5,7 +5,7 @@ const PostCard = ({ post }) => {
     <div className='post-card'>
         <div className='post-content'>
           <p className='post-time'>{post.createdAt}</p>
-          <h2>{post.title}</h2>
+          <h2><a href={`/post/${post._id}`}>{post.title}</a></h2>
           <p>{post.body.length > 200 ? post.body.substring(0, 200) + "..." : post.body}</p>
         </div>
         <div className='post-image'>
