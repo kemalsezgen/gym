@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-const CreatePost = () => {
+const CreatePost = ({setSubmitted}) => {
   const { currentUser } = useSelector((state) => state.user);
   const [modal, setModal] = useState(false);
 
@@ -26,12 +26,10 @@ const CreatePost = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("sa")
-    
-    e.preventDefault();
     try {
       const submitTweet = await axios.post("/posts", post);
       toggleModal();
+      setSubmitted(true);
     } catch (err) {
       console.log(err);
     }
@@ -40,7 +38,7 @@ const CreatePost = () => {
   return (
     <>
       <button onClick={toggleModal} className="btn-modal">
-        Create Post
+        Create
       </button>
 
       {modal && (
