@@ -41,7 +41,7 @@ const Post = () => {
         </div>
       </div>
       <div className='empty'>
-        <p>.</p>
+        <p>..</p>
       </div>
     </>
   )
