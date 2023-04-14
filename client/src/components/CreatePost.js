@@ -15,7 +15,6 @@ const CreatePost = ({ setSubmitted }) => {
 
   const toggleModal = () => {
     setModal(!modal);
-    setPost({})
   };
 
   const handleInputChange = (e) => {

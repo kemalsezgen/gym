@@ -1,10 +1,11 @@
 import React from 'react'
+import moment from 'moment'
 
 const PostCard = ({ post }) => {
   return (
     <div className='post-card'>
         <div className='post-content'>
-          <p className='post-time'>{post.createdAt}</p>
+          <p className='post-time'>{moment(new Date(post.createdAt)).fromNow()}</p>
           <h2><a href={`/post/${post._id}`}>{post.title}</a></h2>
           <p>{post.body.length > 200 ? post.body.substring(0, 200) + "..." : post.body}</p>
         </div>
