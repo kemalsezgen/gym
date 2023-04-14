@@ -549,3 +549,40 @@ body.active-modal {
   margin-bottom: 0;
 }
 
+/* PostPage */
+
+.postPage-container {
+  margin-top: 72px;
+  max-width: 1024px;
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ccc;
+}
+
+.postPage-photo {
+  width: 100%;
+}
+
+.postPage-photo img {
+  width: 80%;
+  height: 500px;
+  object-fit:cover;
+  margin: auto 10%;
+}
+
+.postPage-content {
+  border: 1px solid orange;
+  margin: auto 8%;
+}
+
+.postPage-content h1{
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.postPage-content p{
+  font-size: 24px;
+}
+

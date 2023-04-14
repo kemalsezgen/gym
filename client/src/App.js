@@ -9,7 +9,7 @@ import About from "./pages/About.js";
 import Trainers from "./pages/Trainers.js";
 import Login from "./pages/Login.js";
 import Register from "./pages/Register.js";
-import Post from "./components/Post.js";
+import Post from "./pages/Post.js";
 
 //components
 import Navbar from "./components/Navbar";
