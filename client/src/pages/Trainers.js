@@ -38,8 +38,8 @@ const Trainers = () => {
           {trainers.map((trainer, id) => <TrainerCard key={id} trainer={trainer} />)}
         </div>
       </div>
-      <div>
-
+      <div className='empty'>
+        z
       </div>
       </>
     )
