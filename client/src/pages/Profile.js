@@ -12,10 +12,10 @@ const Profile = () => {
 
   const { currentUser } = useSelector((state) => state.user);
   const [isLoading, setLoading] = useState(true);
-  const [open, setOpen] = useState(false);
   const [posts, setPosts] = useState();
   const [userProfile, setUserProfile] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [updated, setUpdated] = useState(false);
 
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ const Profile = () => {
     };
 
     fetchData();
-  }, [currentUser, id, submitted]);
+  }, [currentUser, id, submitted, updated]);
 
   const handleFollow = async () => {
     if (!currentUser.following.includes(id)) {
@@ -85,9 +85,7 @@ const Profile = () => {
                   <div>
                     {currentUser._id === id ? (
                       <div>
-                        <button className="edit-button" onClick={() => setOpen(!open)}>
-                          Edit Profile
-                        </button>
+                        <EditProfile setUpdated={setUpdated}/>
                         <CreatePost setSubmitted={setSubmitted}/>
                       </div>
                     ) : currentUser.following.includes(id) ? (
@@ -112,7 +110,6 @@ const Profile = () => {
             </div>
           </main>
         </div>
-        {open && <EditProfile setOpen={setOpen} />}
       </>
     )
   }

@@ -27,7 +27,7 @@ const CreatePost = ({setSubmitted}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const submitTweet = await axios.post("/posts", post);
+      const submitPost = await axios.post("/posts", post);
       toggleModal();
       setSubmitted(true);
     } catch (err) {
