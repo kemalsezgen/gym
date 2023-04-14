@@ -619,12 +619,23 @@ body.active-modal {
 /* PostPage */
 
 .postPage-container {
-  margin-top: 72px;
+  margin: 72px auto;
   max-width: 1024px;
   width: 96%;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid #ccc;
+  border: 2px solid var(--darkblue);
+  padding: 16px 0;
+}
+
+.postPage-header {
+  margin-left: 16px;
+  margin-bottom: 16px;
+}
+
+.postPage-container a {
+  text-decoration: none;
+  color: var(--darkblue)
 }
 
 .postPage-photo {
@@ -633,23 +644,27 @@ body.active-modal {
 
 .postPage-photo img {
   width: 80%;
-  height: 500px;
+  height: 480px;
   object-fit:cover;
   margin: auto 10%;
 }
 
 .postPage-content {
-  border: 1px solid orange;
   margin: auto 8%;
+  padding: 16px 24px;
 }
 
 .postPage-content h1{
   text-align: center;
+  text-decoration: underline;
   font-size: 32px;
-  font-weight: 500;
+  font-weight: 600;
+  margin-bottom: 16px;
 }
 
 .postPage-content p{
   font-size: 24px;
+  word-wrap: break-word;
+  color: var(--darkblue)
 }
 

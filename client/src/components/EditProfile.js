@@ -65,7 +65,7 @@ const EditProfile = ({ setUpdated }) => {
           <div className="modal-content">
             <form onSubmit={handleSubmit}>
               <p>Edit your profile description:</p>
-              <textarea class="longInput" cols="30" rows="10" value={description} onChange={handleInputChange} />
+              <textarea className="longInput" cols="30" rows="10" value={description} onChange={handleInputChange} />
               <button id="updateAccountButton" onClick={handleUpdate} type='submit'>Update</button>
             </form>
             <p>Do you want to delete your account?</p>
