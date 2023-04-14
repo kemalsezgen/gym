@@ -80,3 +80,18 @@ export const getExplorePosts = async (req, res, next) => {
     handleError(500, err);
   }
 };
+
+export const getPostById = async (req, res, next) => {
+  try {
+    const postId = req.params.id;
+    const post = await Post.findById(postId);
+
+    if (!post) {
+      return res.status(404).json({ message: 'Post not found' });
+    }
+
+    return res.status(200).json(post);
+  } catch (err) {
+    handleError(500, err);
+  }
+};

@@ -7,6 +7,7 @@ import {
   getAllPosts,
   getUserPosts,
   getExplorePosts,
+  getPostById,
 } from "../controllers/post.js";
 
 const router = express.Router();
@@ -17,5 +18,6 @@ router.put("/:id/like", likeOrDislike);
 router.get("/timeline/:id", getAllPosts);
 router.get("/user/all/:id", getUserPosts);
 router.get("/explore", getExplorePosts);
+router.get("/:id", getPostById);
 
 export default router;
