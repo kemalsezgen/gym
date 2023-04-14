@@ -31,20 +31,17 @@ const Trainers = () => {
     )
   } else {
     return (
+      <>
+      <div className='trainers-container'>
+        <h1>Trainers</h1>
+        <div className='trainers'>
+          {trainers.map((trainer, id) => <TrainerCard key={id} trainer={trainer} />)}
+        </div>
+      </div>
       <div>
-        <section>
-          <div className='trainers-container'>
-            <div className='trainers-title'>
-              <h1>Trainers</h1>
-            </div>
-            <div className='trainers-cards-grid'>
-              <div className='trainers'>
-                {trainers.map((trainer, id) => <TrainerCard key={id} trainer={trainer} />)}
-              </div>
-            </div>
-          </div>
-        </section>
-      </div >
+
+      </div>
+      </>
     )
   }
 }
