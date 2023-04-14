@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-const CreatePost = ({setSubmitted}) => {
+const CreatePost = ({ setSubmitted }) => {
   const { currentUser } = useSelector((state) => state.user);
   const [modal, setModal] = useState(false);
 
@@ -15,6 +15,7 @@ const CreatePost = ({setSubmitted}) => {
 
   const toggleModal = () => {
     setModal(!modal);
+    setPost({})
   };
 
   const handleInputChange = (e) => {
@@ -44,18 +45,27 @@ const CreatePost = ({setSubmitted}) => {
       {modal && (
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
-          <div className="modal-content">
+          <div className="modal-content cratePostForm">
             <form onSubmit={handleSubmit}>
-              <input type="text"
-                name="title"
-                value={post.title}
-                placeholder='Title' onChange={handleInputChange} />
-              <input type="text"
+              <div className='formInput'>
+                <input type="text"
+                  id="postTitle"
+                  name="title"
+                  value={post.title}
+                  placeholder='Title' onChange={handleInputChange} />
+              </div>
+              <div className='formInput'>
+              <textarea type="text"
+                id="postBody"
                 name="body"
                 value={post.body}
                 placeholder='Text here your content.' onChange={handleInputChange} />
-              <button className="create-post" type='submit'>
+              </div>
+              <button id="createPostFormButton" type='submit'>
                 Create
+              </button>
+              <button id="cancelCreatePostFormButton" onClick={toggleModal}>
+                Cancel
               </button>
             </form>
           </div>
