@@ -31,7 +31,7 @@ const Register = () => {
   }
 
   return (
-    <div className='login-container'>
+    <div className='login-container register-container'>
       <div className='welcomeMessage'>
         <h2>Register</h2>
       </div>
@@ -67,7 +67,7 @@ const Register = () => {
           <div className='loginLower'>
             <button className='loginButton' type='submit'>Register</button>
             <div className='redirectText'>
-              <p>Already have an account? <span><Link to='/login'>Login</Link></span></p>
+              <p>Already have an account? <a href="/login">Login</a></p>
             </div>
           </div>
         </form>

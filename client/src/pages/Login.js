@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 import { loginStart, loginSuccess, loginFailed } from '../redux/userSlice';
+
+import { AiOutlineUser } from 'react-icons/ai' 
 
 const Login = () => {
 
@@ -42,7 +44,7 @@ const Login = () => {
           <div className='loginLower'>
             <button className='loginButton' type='submit'>Login</button>
             <div className='redirectText'>
-              <p> You don't have an account? <span><Link to='/register'>Register</Link></span></p>
+              <p> You don't have an account? <a href="/register">Register</a></p>
             </div>
           </div>
         </form>

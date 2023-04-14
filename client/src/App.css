@@ -9,7 +9,7 @@ html, body {
 }
 
 body {
-  background-color: #777;
+  background-color: #d2d2d2;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -152,17 +152,27 @@ footer {
 /* Login-Register Form */
 
 .login-container {
+  background-color: #33333391;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid black;
+  border: 2px solid #0b0039;
   border-radius: 20px;
   width: 400px;
+  color: #0b0039;
+  box-shadow: 10px 5px #0b0039;
+}
+
+.register-container {
+  margin-top: 32px;
 }
 
 .welcomeMessage {
   text-align: center;
+  border-bottom: 2px solid #0b0039;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .loginForm {
@@ -175,8 +185,14 @@ footer {
 }
 
 .loginButton {
-  width: 100px;
-  height: 30px;
+  width: 150px;
+  height: 40px;
+  border-radius: 10%;
+  background-color: #0b0039;
+  color: #d2d2d2;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
 .formInput {
@@ -193,6 +209,16 @@ footer {
   padding: 8px;
   font-size: 16px;
   width: 250px;
+}
+
+.redirectText {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.redirectText a {
+  text-decoration: underline;
+  color: #d2d2d2;
 }
 
 /* Trainer Card */
