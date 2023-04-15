@@ -51,7 +51,9 @@ export const getAllPosts = async (req, res, next) => {
       })
     );
 
-    res.status(200).json(userPosts.concat(...followersPosts));
+    const allPosts = userPosts.concat(...followersPosts).sort((a, b) => b.createdAt - a.createdAt);
+
+    res.status(200).json(allPosts);
   } catch (err) {
     handleError(500, err);
   }
@@ -59,11 +61,10 @@ export const getAllPosts = async (req, res, next) => {
 
 export const getUserPosts = async (req, res, next) => {
   try {
-    const userPosts = await Post.find({ userId: req.params.id }).sort({
-      createAt: -1,
-    });
+    const userPosts = await Post.find({ userId: req.params.id });
+    const sortedUserPosts = userPosts.sort((a, b) => b.createdAt - a.createdAt);
 
-    res.status(200).json(userPosts);
+    res.status(200).json(sortedUserPosts);
   } catch (err) {
     handleError(500, err);
   }

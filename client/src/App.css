@@ -186,6 +186,7 @@ footer {
 .loginLower {
   margin-top: 20px;
   text-align: center;
+  color: #d2d2d2;
 }
 
 .loginButton {
@@ -222,7 +223,7 @@ footer {
 
 .redirectText a {
   text-decoration: underline;
-  color: #d2d2d2;
+  color: var(--darkblue);
 }
 
 /* Trainer Card */
@@ -483,12 +484,13 @@ body.active-modal {
 /* Profile */
 
 .profile-container {
-  margin-top: 72px;
+  margin: 72px auto;
   max-width: 1024px;
   width: 96%;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid #ccc;
+  border: 2px solid var(--darkblue);
+  box-shadow: 10px 5px var(--darkblue);
 }
 
 .grid-container {
@@ -513,6 +515,9 @@ body.active-modal {
 .descriptions {
   grid-area: descriptions; 
   word-break: break-word;
+  border: 3px solid var(--darkblue);
+  margin: 10px 20px;
+  height: 360px;
 }
 
 .descriptions h2 {
@@ -527,8 +532,8 @@ body.active-modal {
   height: 360px;
   width: 100%;
   object-fit: cover;
-  border: 10px solid #2d0606;
-  margin-bottom: 10px;
+  border: 5px solid var(--darkblue);
+  margin: 10px;
 }
 
 #profile-description-new {
@@ -538,7 +543,7 @@ body.active-modal {
 .subscribers-button p {
   margin: 0;
   font-size: 24px;
-  color: #3f1c1c;
+  color: var(--darkblue);
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -563,7 +568,7 @@ body.active-modal {
 }
 
 .profile-top {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid var(--darkblue);
   padding-bottom: 10px;
 }
 
@@ -571,10 +576,10 @@ body.active-modal {
 
 .post-card {
   width: 80%;
-  height: 144px;
-  border: solid 2px white;
+  height: 196px;
+  border: solid 2px var(--darkblue);
   margin-left: 10%;
-  margin-bottom: 20px;
+  margin: 20px auto;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-areas: "postContent postContent postContent postContent postImage";
@@ -606,14 +611,10 @@ body.active-modal {
 
 .post-image img {
   width: 100%;
-  height: 140px;
+  height: 192px;
   object-fit:cover;
   padding: 10px;
-  border: 5px solid darkblue;
-}
-
-.post-card:last-child {
-  margin-bottom: 0;
+  border: 5px solid var(--darkblue);
 }
 
 /* PostPage */
@@ -626,6 +627,7 @@ body.active-modal {
   margin-right: auto;
   border: 2px solid var(--darkblue);
   padding: 16px 0;
+  box-shadow: 10px 5px var(--darkblue);
 }
 
 .postPage-header {
@@ -668,3 +670,39 @@ body.active-modal {
   color: var(--darkblue)
 }
 
+/* Homepage */ 
+
+.homepage-container {
+  margin: 72px auto;
+  max-width: 1024px;
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid var(--darkblue);
+  padding: 16px 8px;
+  box-shadow: 10px 5px var(--darkblue);
+}
+
+.cratePostForm {
+  position: relative;
+  border: 2px solid var(--darkblue);
+  padding: 10px;
+}
+
+
+.cratePostForm input {
+  padding: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.cratePostForm textarea {
+  padding: 8px;
+  font-size: 16px;
+  width: 350px;
+  height: 150px;
+  resize: none;
+  box-sizing: border-box;
+  width: 100% 
+}
