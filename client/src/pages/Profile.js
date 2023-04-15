@@ -5,7 +5,7 @@ import axios from "axios";
 
 import PostCard from '../components/PostCard'
 import EditProfile from "../components/EditProfile";
-import CreatePost from '../components/CreatePost';
+import CreatePostModal from '../components/CreatePostModal';
 import { following } from "../redux/userSlice"
 
 const Profile = () => {
@@ -30,6 +30,7 @@ const Profile = () => {
         setPosts(posts.data)
         setLoading(false);
         setSubmitted(false);
+        console.log("updated:", updated)
 
       } catch (err) {
         console.log("error", err);
@@ -86,7 +87,7 @@ const Profile = () => {
                     {currentUser._id === id ? (
                       <div>
                         <EditProfile setUpdated={setUpdated}/>
-                        <CreatePost setSubmitted={setSubmitted}/>
+                        <CreatePostModal setSubmitted={setSubmitted}/>
                       </div>
                     ) : currentUser.following.includes(id) ? (
                       <button className="follow-button" onClick={handleFollow}>
@@ -109,6 +110,9 @@ const Profile = () => {
               {posts.map((post, id) => <PostCard post={post} key={id} />)}
             </div>
           </main>
+        </div>
+        <div className='empty'>
+          <p>.</p>
         </div>
       </>
     )

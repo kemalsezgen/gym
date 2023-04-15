@@ -1,20 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import { useSelector } from "react-redux";
 
 import Login from './Login.js';
-import { toCamelCase } from "../utils/camelCase.js";
+import CreatePost from "../components/CreatePost.js";
+import Timeline from "../components/Timeline.js";
 
 const Home = () => {
+
   const { currentUser } = useSelector((state) => state.user);
-  console.log(currentUser);
+  const [submitted, setSubmitted] = useState(false);
 
   return (
     <>
       {!currentUser ? (
         <Login />
       ) : (
-        <div>
-          {`Hey ${toCamelCase(currentUser.name)}, welcome to GYM.`}
+        <div className="homepage-container">
+          <CreatePost setSubmitted={setSubmitted}/>
+          <Timeline submitted={submitted} setSubmitted={setSubmitted}/>
         </div>
       )}
     </>
