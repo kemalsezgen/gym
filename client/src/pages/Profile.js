@@ -30,6 +30,7 @@ const Profile = () => {
 
         const posts = await axios.get(`http://localhost:5000/posts/user/all/${userProfile.data._id}`)
         setUserPosts(posts.data)
+
         setLoading(false);
         setSubmitted(false);
       } catch (err) {
@@ -62,6 +63,8 @@ const Profile = () => {
       }
     }
   };
+
+  console.log("userPosts:", userPosts)
 
   if (isLoading) {
     return (
@@ -105,7 +108,7 @@ const Profile = () => {
               </div>
             </div>
             <div id='profile-posts' className='posts'>
-              {userPosts.map((post, id) => <PostCard post={post} key={id} setSubmitted={setSubmitted}/>)}
+              {userPosts.map((post, id) => <PostCard post={post} key={id} user={currentUser} setSubmitted={setSubmitted}/>)}
             </div>
           </main>
         </div>
