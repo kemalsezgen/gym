@@ -22,7 +22,6 @@ const CreatePost = ({ setSubmitted }) => {
     e.preventDefault();
     try {
       const submitPost = await axios.post("/posts", post);
-      console.log(submitPost)
       setSubmitted(true);
       setPost({})
     } catch (err) {

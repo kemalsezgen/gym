@@ -16,7 +16,6 @@ const Timeline = ({ submitted, setSubmitted}) => {
         const posts = await axios.get(`/posts/timeline/${currentUser._id}`);
         setTimelinePosts(posts.data);
         setSubmitted(false);
-        console.log(posts.data)
       } catch (err) {
         console.log("error", err);
       }

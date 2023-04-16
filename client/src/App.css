@@ -589,6 +589,7 @@ body.active-modal {
   grid-area: postContent;
   word-break: break-word;
   margin: 10px;
+  position: relative;
 }
 
 .post-content h2 {
@@ -615,6 +616,28 @@ body.active-modal {
   object-fit:cover;
   padding: 10px;
   border: 5px solid var(--darkblue);
+}
+
+#viewPost {
+  float:right;
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
+.deletePostButton {
+  float:left;
+  position:absolute;
+  top:0;
+  right:0;
+  font-size: 24px;
+  color: darkred;
+  display: none;
+  border: 2px solid black;
+}
+
+.post-card:hover .deletePostButton {
+  display: block;
 }
 
 /* PostPage */
@@ -688,7 +711,6 @@ body.active-modal {
   border: 2px solid var(--darkblue);
   padding: 10px;
 }
-
 
 .cratePostForm input {
   padding: 8px;
