@@ -1,15 +1,20 @@
 import React, { useState } from 'react'
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { addPost } from "../redux/postSlice";
 
 const CreatePost = ({ setSubmitted }) => {
   const { currentUser } = useSelector((state) => state.user);
+
   const [post, setPost] = useState({
     userId: currentUser._id,
     title: "",
     body: "",
     image: "",
   })
+
+  const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
     setPost({
@@ -22,6 +27,7 @@ const CreatePost = ({ setSubmitted }) => {
     e.preventDefault();
     try {
       const submitPost = await axios.post("/posts", post);
+      dispatch(addPost(submitPost.data))
       setSubmitted(true);
       setPost({})
     } catch (err) {

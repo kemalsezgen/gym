@@ -11,8 +11,10 @@ import { following } from "../redux/userSlice"
 const Profile = () => {
 
   const { currentUser } = useSelector((state) => state.user);
+  const { posts } = useSelector((state) => state.post);
+
   const [isLoading, setLoading] = useState(true);
-  const [posts, setPosts] = useState();
+  const [userPosts, setUserPosts] = useState();
   const [userProfile, setUserProfile] = useState(null);
   const [submitted, setSubmitted] = useState(false);
   const [updated, setUpdated] = useState(false);
@@ -27,7 +29,7 @@ const Profile = () => {
         setUserProfile(userProfile.data)
 
         const posts = await axios.get(`http://localhost:5000/posts/user/all/${userProfile.data._id}`)
-        setPosts(posts.data)
+        setUserPosts(posts.data)
         setLoading(false);
         setSubmitted(false);
       } catch (err) {
@@ -78,7 +80,7 @@ const Profile = () => {
                   alt='profilephoto' />
                 <div className='subscribers-button'>
                   <p>{`${userProfile.followers.length} abone - ${userProfile.following.length} takip`}</p>
-                  <p>{`${posts.length} posts`}</p>
+                  <p>{`${userPosts.length} posts`}</p>
                   <div>
                     {currentUser._id === id ? (
                       <div>
@@ -103,7 +105,7 @@ const Profile = () => {
               </div>
             </div>
             <div id='profile-posts' className='posts'>
-              {posts.map((post, id) => <PostCard post={post} key={id} setSubmitted={setSubmitted}/>)}
+              {userPosts.map((post, id) => <PostCard post={post} key={id} setSubmitted={setSubmitted}/>)}
             </div>
           </main>
         </div>
