@@ -15,12 +15,8 @@ export const createPost = async (req, res, next) => {
 export const deletePost = async (req, res, next) => {
   try {
     const post = await Post.findById(req.params.id);
-    if (post.userId === req.body.id) {
-      await post.deleteOne();
-      res.status(200).json("post has been deleted");
-    } else {
-      handleError(500, err);
-    }
+    await post.deleteOne();
+    res.status(200).json("post has been deleted");
   } catch (err) {
     handleError(500, err);
   }

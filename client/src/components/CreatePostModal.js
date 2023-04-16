@@ -28,7 +28,6 @@ const CreatePostModal = ({ setSubmitted }) => {
     e.preventDefault();
     try {
       const submitPost = await axios.post("/posts", post);
-      console.log(submitPost)
       toggleModal();
       setSubmitted(true);
     } catch (err) {

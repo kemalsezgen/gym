@@ -15,7 +15,6 @@ const EditProfile = ({ setUpdated }) => {
 
   const handleDelete = async () => {
     const deleteProfile = await axios.delete(`/users/${currentUser._id}`);
-    console.log("profile deleted", deleteProfile)
     dispatch(logout());
     navigate("/login");
   };
@@ -45,7 +44,6 @@ const EditProfile = ({ setUpdated }) => {
         description
       });
       dispatch(editProfile(updatedProfile.data.description));
-      console.log(updatedProfile.data)
       toggleModal();
       setUpdated(true);
     } catch (err) {

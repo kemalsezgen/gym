@@ -30,8 +30,6 @@ const Profile = () => {
         setPosts(posts.data)
         setLoading(false);
         setSubmitted(false);
-        console.log("updated:", updated)
-
       } catch (err) {
         console.log("error", err);
       }
@@ -47,7 +45,6 @@ const Profile = () => {
           id: currentUser._id,
         });
         dispatch(following(id));
-        console.log("success", follow)
       } catch (err) {
         console.log("error", err);
       }
@@ -56,9 +53,8 @@ const Profile = () => {
         const unfollow = await axios.put(`/users/unfollow/${id}`, {
           id: currentUser._id,
         });
-
+        
         dispatch(following(id));
-        console.log("unfollow success", unfollow)
       } catch (err) {
         console.log("error", err);
       }
@@ -107,7 +103,7 @@ const Profile = () => {
               </div>
             </div>
             <div id='profile-posts' className='posts'>
-              {posts.map((post, id) => <PostCard post={post} key={id} />)}
+              {posts.map((post, id) => <PostCard post={post} key={id} setSubmitted={setSubmitted}/>)}
             </div>
           </main>
         </div>
