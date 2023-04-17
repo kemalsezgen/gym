@@ -6,6 +6,7 @@ import axios from "axios";
 import PostCard from '../components/PostCard'
 import EditProfile from "../components/EditProfile";
 import CreatePostModal from '../components/CreatePostModal';
+import SubscribersModal from '../components/SubscribersModal';
 import { following } from "../redux/userSlice"
 
 const Profile = () => {
@@ -64,8 +65,6 @@ const Profile = () => {
     }
   };
 
-  console.log("userPosts:", userPosts)
-
   if (isLoading) {
     return (
       <div>
@@ -82,7 +81,8 @@ const Profile = () => {
                 <img src={userProfile.photo ? userProfile.photo : 'https://images.unsplash.com/photo-1620371350502-999e9a7d80a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=740&q=80'}
                   alt='profilephoto' />
                 <div className='subscribers-button'>
-                  <p>{`${userProfile.followers.length} abone - ${userProfile.following.length} takip`}</p>
+                  <SubscribersModal user={userProfile} />
+                  <p>{`${userProfile.following.length} takip`}</p>
                   <p>{`${userPosts.length} posts`}</p>
                   <div>
                     {currentUser._id === id ? (
