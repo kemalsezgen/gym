@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addPost } from "../redux/postSlice";
 
 const CreatePostModal = ({ setSubmitted }) => {
   const { currentUser } = useSelector((state) => state.user);
@@ -12,6 +13,8 @@ const CreatePostModal = ({ setSubmitted }) => {
     body: "",
     image: "",
   })
+
+  const dispatch = useDispatch();
 
   const toggleModal = () => {
     setModal(!modal);
@@ -28,6 +31,7 @@ const CreatePostModal = ({ setSubmitted }) => {
     e.preventDefault();
     try {
       const submitPost = await axios.post("/posts", post);
+      dispatch(addPost(submitPost.data))
       toggleModal();
       setSubmitted(true);
     } catch (err) {

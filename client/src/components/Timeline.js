@@ -34,16 +34,14 @@ const Timeline = ({ submitted, setSubmitted}) => {
       });
 
       setUsers(usersObj);
-
     }
-
     fetchUsers();
   }, []);
 
   return (
     <div>
       <div id='profile-posts' className='posts'>
-        {timelinePosts.map((post, id) => <PostCard post={post} key={id} user={users[post.userId]}/>)}
+        {timelinePosts.map((post, id) => <PostCard post={post} key={id} setSubmitted={setSubmitted} user={users[post.userId]}/>)}
       </div>
     </div>
   )
