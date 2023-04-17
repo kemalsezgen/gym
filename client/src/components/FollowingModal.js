@@ -4,18 +4,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { following } from "../redux/userSlice"
 import axios from 'axios';
 
-
-const SubscribersModal = ({ user, currentUser }) => {
+const FollowingModal = ({ user, currentUser }) => {
   const [modal, setModal] = useState(false);
-  const [subscribers, setSubscribers] = useState();
-  const subscribersIds = user.followers;
+  const [followings, setFollowings] = useState();
+  const followingIds = user.following;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchUsers = async () => {
       const users = await axios.get('/users');
-      setSubscribers(users.data.filter(user => subscribersIds.includes(user._id)));
+      setFollowings(users.data.filter(user => followingIds.includes(user._id)));
     }
     fetchUsers();
   }, [user]);
@@ -47,11 +46,12 @@ const SubscribersModal = ({ user, currentUser }) => {
     }
   }
 
+
   return (
     <>
       <div className='subscribersText' onClick={toggleModal}>
-        <p>{`${user.followers.length}`}</p>
-        <p>subscribers</p>
+        <p>{`${user.following.length}`}</p>
+        <p>following</p>
       </div>
 
       {modal && (
@@ -60,11 +60,11 @@ const SubscribersModal = ({ user, currentUser }) => {
           <div className='modal-content'>
             <div className='username-list'>
               <ul>
-                {subscribers.map((subscriber, id) => (
+                {followings.map((following, id) => (
                   <li key={id}>
-                    <p><a href={`/profile/${subscriber._id}`}>{subscriber.username}</a></p>
-                    <p id='follow-following-followBack' onClick={() => handleFollow(subscriber._id)}>{(currentUser._id === subscriber._id) ? "-" : currentUser.following.includes(subscriber._id) ? "unfollow" : 
-                    (currentUser.followers.includes(subscriber._id) ? "follow back" : "follow")}</p>
+                    <p><a href={`/profile/${following._id}`}>{following.username}</a></p>
+                    <p id='follow-following-followBack' onClick={() => handleFollow(following._id)}>{(currentUser._id === following._id) ? "-" : currentUser.following.includes(following._id) ? "unfollow" : 
+                    (currentUser.followers.includes(following._id) ? "follow back" : "follow")}</p>
                   </li>
                 ))}
               </ul>
@@ -76,4 +76,4 @@ const SubscribersModal = ({ user, currentUser }) => {
   );
 }
 
-export default SubscribersModal;
+export default FollowingModal;
