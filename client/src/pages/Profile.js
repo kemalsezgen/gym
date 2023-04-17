@@ -7,7 +7,9 @@ import PostCard from '../components/PostCard'
 import EditProfile from "../components/EditProfile";
 import CreatePostModal from '../components/CreatePostModal';
 import SubscribersModal from '../components/SubscribersModal';
+import FollowingModal from '../components/FollowingModal';
 import { following } from "../redux/userSlice"
+import { current } from '@reduxjs/toolkit';
 
 const Profile = () => {
 
@@ -57,7 +59,7 @@ const Profile = () => {
         const unfollow = await axios.put(`/users/unfollow/${id}`, {
           id: currentUser._id,
         });
-        
+
         dispatch(following(id));
       } catch (err) {
         console.log("error", err);
@@ -81,14 +83,19 @@ const Profile = () => {
                 <img src={userProfile.photo ? userProfile.photo : 'https://images.unsplash.com/photo-1620371350502-999e9a7d80a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=740&q=80'}
                   alt='profilephoto' />
                 <div className='subscribers-button'>
-                  <SubscribersModal user={userProfile} />
-                  <p>{`${userProfile.following.length} takip`}</p>
-                  <p>{`${userPosts.length} posts`}</p>
+                  <div className='subscribers-numbers'>
+                    <SubscribersModal user={userProfile} currentUser={currentUser}/>
+                    <FollowingModal user={userProfile} currentUser={currentUser}/>
+                    <div id='postNumberOfUser'>
+                      <p>{`${userPosts.length}`}</p>
+                      <p>posts</p>
+                    </div>
+                  </div>
                   <div>
                     {currentUser._id === id ? (
-                      <div>
-                        <EditProfile setUpdated={setUpdated}/>
-                        <CreatePostModal setSubmitted={setSubmitted}/>
+                      <div className='profile-buttons'>
+                        <EditProfile setUpdated={setUpdated} />
+                        <CreatePostModal setSubmitted={setSubmitted} />
                       </div>
                     ) : currentUser.following.includes(id) ? (
                       <button className="follow-button" onClick={handleFollow}>
@@ -108,7 +115,7 @@ const Profile = () => {
               </div>
             </div>
             <div id='profile-posts' className='posts'>
-              {userPosts.map((post, id) => <PostCard post={post} key={id} user={currentUser} setSubmitted={setSubmitted}/>)}
+              {userPosts.map((post, id) => <PostCard post={post} key={id} user={userProfile} setSubmitted={setSubmitted} />)}
             </div>
           </main>
         </div>

@@ -323,13 +323,6 @@ footer {
 }
 
 /* Profile */
-
-.profile-header {
-  border: 2px solid purple;
-  text-align: center;
-  padding: 20px;
-}
-
 .profile-header img {
   height: 300px;
   width: 300px;
@@ -387,6 +380,28 @@ footer {
   color: #1c1414;
 }
 
+.subscribers-numbers {
+  display: flex;
+}
+
+.subscribers-numbers {
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.profile-buttons {
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#postNumberOfUser p{
+  margin: 0;
+  font-size: 20px;
+}
+
 /* Create Post Modal */
 body.active-modal {
   overflow-y: hidden;
@@ -429,7 +444,7 @@ body.active-modal {
   padding: 14px 28px;
   border-radius: 3px;
   max-width: 600px;
-  min-width: 300px;
+  min-width: 450px;
 }
 
 #postTitle {
@@ -727,4 +742,49 @@ body.active-modal {
   resize: none;
   box-sizing: border-box;
   width: 100% 
+}
+
+/* Subscribers Modal */
+
+.subscribersText {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.subscribersText p {
+  margin: 0;
+  font-size: 20px;
+}
+
+.username-list {
+  border: 2px solid var(--darkblue);
+  text-align: left;
+}
+
+.username-list ul li a{
+  text-decoration: none;
+  color: var(--darkblue);
+  font-size: 24px;
+}
+
+.username-list ul li{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+.username-list ul li:last-child{
+  border: none;
+}
+
+.username-list ul li p{
+  font-size: 24px;
+  margin: 0 5px;
+  padding: 8px;
+}
+
+#follow-following-followBack {
+  font-size: 22px;
+  padding: 8px;
+  color: #250a94a5;
 }
