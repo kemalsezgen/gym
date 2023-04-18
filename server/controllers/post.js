@@ -27,11 +27,10 @@ export const likeOrDislike = async (req, res, next) => {
     const post = await Post.findById(req.params.id);
     if (!post.likes.includes(req.body.id)) {
       await post.updateOne({ $push: { likes: req.body.id } });
-      res.status(200).json("post has been liked");
     } else {
-      await tweet.updateOne({ $pull: { likes: req.body.id } });
-      res.status(200).json("post has been disliked");
+      await post.updateOne({ $pull: { likes: req.body.id } });
     }
+    res.status(200).json(post);
   } catch (err) {
     handleError(500, err);
   }

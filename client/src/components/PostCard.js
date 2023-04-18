@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import LikesModal from '../components/LikesModal';
+import { AiFillDelete, AiOutlineLike, AiFillLike } from 'react-icons/ai';
 
-import { AiFillDelete } from 'react-icons/ai';
-
-const PostCard = ({ post, setSubmitted, user}) => {
+const PostCard = ({ post, setSubmitted, user }) => {
 
   const { currentUser } = useSelector((state) => state.user);
-  
+  const [liked, setLiked] = useState(post.likes.includes(currentUser._id));
+
   const handleDelete = async () => {
     console.log("delete")
     const deleted = await axios.delete(`/posts/${post._id}`, {
@@ -16,6 +17,19 @@ const PostCard = ({ post, setSubmitted, user}) => {
     });
     setSubmitted(true);
   }
+
+  const handleLike = async (e) => {
+    try {
+      const like = await axios.put(`/posts/${post._id}/like`, {
+        id: currentUser._id,
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.log("error", err);
+    }
+  };
+
+  console.log("like", post.likes)
 
   return (
     (user &&
@@ -30,6 +44,7 @@ const PostCard = ({ post, setSubmitted, user}) => {
           <h2><a href={`/post/${post._id}`}>{post.title}</a></h2>
           <p>{post.body.length > 280 ? post.body.substring(0, 280) + "..." : post.body}</p>
           <div id="viewPost">
+            <LikesModal currentUser={currentUser} post={post}/>
             <a href={`/post/${post._id}`}>{'>>>'}</a>
           </div>
         </div>

@@ -634,10 +634,11 @@ body.active-modal {
 }
 
 #viewPost {
-  float:right;
-  position:absolute;
-  bottom:0;
-  right:0;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  bottom: 0;
 }
 
 .deletePostButton {
@@ -706,6 +707,23 @@ body.active-modal {
   font-size: 24px;
   word-wrap: break-word;
   color: var(--darkblue)
+}
+
+.likePost {
+  display: flex;
+  margin-top: 18px;
+  border-top: 2px solid var(--darkblue);
+  padding-top: 10px;
+}
+
+.likePost p{
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.like-count {
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 /* Homepage */ 
