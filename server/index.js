@@ -10,6 +10,8 @@ import cookieParser from "cookie-parser";
 import postRoutes from "./routes/posts.js"
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/user.js"
+import chatRoutes from "./routes/chat.js";
+import messageRoutes from "./routes/message.js";
 
 const app = express();
 
@@ -29,6 +31,8 @@ const PORT = process.env.PORT || 5000;
 app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
 app.use('/posts', postRoutes);
+app.use('/chat', chatRoutes);
+app.use('/message', messageRoutes);
 
 // MongoDB connection
 mongoose.connect(process.env.DATABASE_URL)

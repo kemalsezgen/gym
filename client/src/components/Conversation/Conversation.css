@@ -1,0 +1,34 @@
+.conversation {
+  display: flex;
+  align-items: center;
+  height: 110px;
+  margin: 10px 10px;
+  border: 1px solid black;
+  background-color: #6d3c3c63;
+  cursor: pointer;
+  color: white;
+}
+
+.user-card-chat:hover {
+  background-color: rgb(44, 19, 19);
+}
+
+.conversation img {
+  height: 100px;
+  width: 100px;
+  margin: 2px;
+  margin-right: 10px;
+  border: 1px solid var(--darkblue);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.conversationName {
+  font-weight: 500;
+}
+
+@media screen and (max-width: 650px) {
+  .conversationName {
+    display: none;
+  }
+}

@@ -8,7 +8,8 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -104,7 +105,7 @@ ul {
 }
 
 footer {
-  position:absolute;
+  position: absolute;
   background-color: #333;
   color: #fff;
   padding: 20px;
@@ -248,7 +249,7 @@ footer {
 .trainerPhoto img {
   width: 100%;
   height: 167px;
-  object-fit:cover;
+  object-fit: cover;
   padding: 5px;
 }
 
@@ -264,7 +265,7 @@ footer {
   color: #dfdfdf
 }
 
-.trainer-cardText a{
+.trainer-cardText a {
   font-size: 24px;
   color: #dfdfdf;
   text-decoration: none;
@@ -281,7 +282,7 @@ footer {
   color: #dfdfdf
 }
 
-/* Trainers */ 
+/* Trainers */
 
 .trainers-container {
   margin: 72px auto;
@@ -297,7 +298,7 @@ footer {
   color: var(--darkblue)
 }
 
-.trainer-cardText h3{
+.trainer-cardText h3 {
   font-weight: 400;
   text-transform: capitalize;
 }
@@ -397,7 +398,7 @@ footer {
   justify-content: space-evenly;
 }
 
-#postNumberOfUser p{
+#postNumberOfUser p {
   margin: 0;
   font-size: 20px;
 }
@@ -420,7 +421,8 @@ body.active-modal {
   color: beige;
 }
 
-.modal, .overlay {
+.modal,
+.overlay {
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -431,7 +433,7 @@ body.active-modal {
 }
 
 .overlay {
-  background: rgba(49,49,49,0.8);
+  background: rgba(49, 49, 49, 0.8);
 }
 
 .modal-content {
@@ -510,7 +512,7 @@ body.active-modal {
 
 .grid-container {
   display: grid;
-  grid-template-areas: 
+  grid-template-areas:
     "profileTop profileTop"
     "posts posts";
 }
@@ -519,16 +521,16 @@ body.active-modal {
   grid-area: profileTop;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-areas:  
+  grid-template-areas:
     "profilePhoto descriptions"
 }
 
 .profilePhoto {
-  grid-area: profilePhoto; 
+  grid-area: profilePhoto;
 }
 
 .descriptions {
-  grid-area: descriptions; 
+  grid-area: descriptions;
   word-break: break-word;
   border: 3px solid var(--darkblue);
   margin: 10px 20px;
@@ -628,7 +630,7 @@ body.active-modal {
 .post-image img {
   width: 100%;
   height: 192px;
-  object-fit:cover;
+  object-fit: cover;
   padding: 10px;
   border: 5px solid var(--darkblue);
 }
@@ -642,10 +644,10 @@ body.active-modal {
 }
 
 .deletePostButton {
-  float:left;
-  position:absolute;
-  top:0;
-  right:0;
+  float: left;
+  position: absolute;
+  top: 0;
+  right: 0;
   font-size: 24px;
   color: darkred;
   display: none;
@@ -686,7 +688,7 @@ body.active-modal {
 .postPage-photo img {
   width: 80%;
   height: 480px;
-  object-fit:cover;
+  object-fit: cover;
   margin: auto 10%;
 }
 
@@ -695,7 +697,7 @@ body.active-modal {
   padding: 16px 24px;
 }
 
-.postPage-content h1{
+.postPage-content h1 {
   text-align: center;
   text-decoration: underline;
   font-size: 32px;
@@ -703,7 +705,7 @@ body.active-modal {
   margin-bottom: 16px;
 }
 
-.postPage-content p{
+.postPage-content p {
   font-size: 24px;
   word-wrap: break-word;
   color: var(--darkblue)
@@ -716,7 +718,7 @@ body.active-modal {
   padding-top: 10px;
 }
 
-.likePost p{
+.likePost p {
   font-size: 24px;
   margin-right: 10px;
 }
@@ -726,7 +728,7 @@ body.active-modal {
   font-weight: bold;
 }
 
-/* Homepage */ 
+/* Homepage */
 
 .homepage-container {
   margin: 72px auto;
@@ -752,6 +754,7 @@ body.active-modal {
   width: 100%;
   margin-bottom: 20px;
 }
+
 .cratePostForm textarea {
   padding: 8px;
   font-size: 16px;
@@ -759,7 +762,7 @@ body.active-modal {
   height: 150px;
   resize: none;
   box-sizing: border-box;
-  width: 100% 
+  width: 100%
 }
 
 /* Subscribers Modal */
@@ -779,23 +782,23 @@ body.active-modal {
   text-align: left;
 }
 
-.username-list ul li a{
+.username-list ul li a {
   text-decoration: none;
   color: var(--darkblue);
   font-size: 24px;
 }
 
-.username-list ul li{
+.username-list ul li {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid black;
 }
 
-.username-list ul li:last-child{
+.username-list ul li:last-child {
   border: none;
 }
 
-.username-list ul li p{
+.username-list ul li p {
   font-size: 24px;
   margin: 0 5px;
   padding: 8px;
@@ -805,4 +808,66 @@ body.active-modal {
   font-size: 22px;
   padding: 8px;
   color: #250a94a5;
+}
+
+/* Chat */
+
+.chat-container {
+  margin: 72px auto;
+  max-width: 1024px;
+  width: 96%;
+  border: 3px solid var(--darkblue);
+  box-shadow: 10px 5px var(--darkblue);
+}
+
+.chat-grid-area {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "leftSideChat chatArea chatArea";
+}
+
+.left-side-chat {
+  grid-area: leftSideChat;
+  border-right: 2px solid var(--darkblue);
+  margin-right: 10px;
+}
+
+.chat-area {
+  grid-area: chatArea;
+}
+
+/* Conversation */
+
+.user-card-chat img {
+  height: 100px;
+  width: 100px;
+  margin: 2px;
+  margin-right: 10px;
+  border: 1px solid var(--darkblue);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chat-username a {
+  text-decoration: none;
+  color: black
+}
+
+.chat-header {
+  height: 70px;
+  background-color: #444;
+  color: white;
+  cursor: default;
+}
+
+.chat-header img {
+  height: 60px;
+  width: 60px;
+}
+
+.chat-area-text {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
