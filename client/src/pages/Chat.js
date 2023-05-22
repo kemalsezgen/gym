@@ -105,6 +105,7 @@ const Chat = () => {
     <>
       <div className="chat-container">
         <div className="chat-grid-area">
+          {/* Conversations LEFT SIDE */}
           <div className="left-side-chat">
               {conversations.map((c, id) => (
                 <div className='user-card-chat' key={id} onClick={() => setCurrentChat(c)}>
@@ -112,10 +113,14 @@ const Chat = () => {
                 </div>
               ))}
           </div>
+          {/* Chats RIGHT SIDE */}
           <div className="chatBox">
             <div className="chatBoxWrapper">
               {currentChat ? (
                 <>
+                  <div className="chatBoxUsername">
+                    <h2>username</h2>
+                  </div>
                   <div className="chatBoxTop">
                     {messages.map((m, id) => (
                       <div ref={scrollRef} key={id}>
