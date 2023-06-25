@@ -12,10 +12,10 @@ import Register from "./pages/Register.js";
 import Post from "./pages/Post.js";
 import Chat from "./pages/Chat.js";
 import VideoCall from "./pages/VideoCall";
+import VideoCall2 from "./pages/VideoCall2";
 
 //components
 import Navbar from "./components/Navbar";
-//import Footer from "./components/Footer";
 
 const Layout = () => {
   return (
@@ -42,7 +42,8 @@ const router = createBrowserRouter([
       { path: "/login", element: <Login />},
       { path: "/signout", element: <Login />},
       { path: "/register", element: <Register />},
-      { path: "/videocall", element: <VideoCall />}
+      { path: "/videocall", element: <VideoCall2 />}
+
     ]
   }
 ])
