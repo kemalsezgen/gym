@@ -49,7 +49,7 @@ const CreatePost = ({ setSubmitted }) => {
             value={post.body}
             placeholder='Text here your content.' onChange={handleInputChange} />
         </div>
-        <button id="createPostFormButton" type='submit'>
+        <button className="createPostFormButton" type='submit'>
           Create
         </button>
       </form>
