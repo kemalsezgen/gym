@@ -99,3 +99,13 @@ export const unFollow = async (req, res, next) => {
   }
 };
 
+export const getFollowers = async (req, res, next) => {
+  try {
+    const allUsers = await User.find();
+    const user = await User.findById(req.params.id);
+    const followers = allUsers.filter((u) => user.followers.includes(u._id))
+    res.status(200).json(followers);
+  } catch (error) {
+    next(error);
+  }
+};
