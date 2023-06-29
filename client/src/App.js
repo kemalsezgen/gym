@@ -13,6 +13,7 @@ import Post from "./pages/Post.js";
 import Chat from "./pages/Chat.js";
 import VideoCall from "./pages/VideoCall";
 import VideoCall2 from "./pages/VideoCall2";
+import Messenger from "./pages/messenger/Messenger";
 
 //components
 import Navbar from "./components/Navbar";
@@ -38,11 +39,11 @@ const router = createBrowserRouter([
       { path: "/post/:id", element: <Post />},
       { path: "/trainers", element: <Trainers /> },
       { path: "/about", element: <About />},
-      { path: "/chat", element: <Chat />},
       { path: "/login", element: <Login />},
       { path: "/signout", element: <Login />},
       { path: "/register", element: <Register />},
-      { path: "/videocall", element: <VideoCall2 />}
+      { path: "/videocall", element: <VideoCall2 />},
+      { path: "/messenger", element: <Messenger />},
 
     ]
   }

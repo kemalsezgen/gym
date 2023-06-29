@@ -1,0 +1,25 @@
+/* Chat */
+
+.chat-container {
+  margin: 72px auto;
+  max-width: 1024px;
+  width: 96%;
+  border: 3px solid var(--darkblue);
+  box-shadow: 10px 5px var(--darkblue);
+}
+
+.chat-grid-area {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "leftSideChat chatArea chatArea";
+}
+
+.left-side-chat {
+  grid-area: leftSideChat;
+  border-right: 2px solid var(--darkblue);
+  margin-right: 10px;
+}
+
+.chat-area {
+  grid-area: chatArea;
+}
