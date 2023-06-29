@@ -4,8 +4,8 @@
   margin-top: 20px;
 }
 
-.messageTop {
-  display: flex;
+.messageTop{
+    display: flex;
 }
 
 .messageImg {
@@ -16,35 +16,24 @@
   margin-right: 10px;
 }
 
-.messageText {
-  padding: 10px;
-  border-radius: 20px;
-  background-color: #1877f2;
-  color: white;
-  max-width: 300px;
+.messageText{
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #1877f2;
+    color: white;
+    max-width: 300px;
 }
 
-.messageOwn p {
-  padding: 10px;
-  border-radius: 20px;
-  background-color: #1877f2;
-  color: white;
-  max-width: 300px;
+.messageBottom{
+    font-size: 12px;
+    margin-top: 10px;
 }
 
-.messageOtherUser p {
-  padding: 10px;
-  border-radius: 20px;
-  background-color: #b51e74;
-  color: white;
-  max-width: 300px;
+.message.own{
+    align-items: flex-end;
 }
 
-.messageBottom {
-  font-size: 12px;
-  margin-top: 10px;
-}
-
-.messageOwn {
-  align-items: flex-end;
+.message.own .messageText{
+    background-color: rgb(245, 241, 241);
+    color: black;
 }

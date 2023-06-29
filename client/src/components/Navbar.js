@@ -34,7 +34,7 @@ export default function Navbar() {
               <a id="user-name" href={`/profile/${currentUser._id}`}>{`${currentUser.name}`}</a>
               <ul>
                 <li>
-                  <a href='/chat'>Messages</a>
+                  <a href='/messenger'>Messages</a>
                 </li>
                 <li>
                   <a href='/videocall'>Video Call</a>
