@@ -78,8 +78,6 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receivedMessage }) => {
 
   }, [receivedMessage])
 
-
-
   const scroll = useRef();
   const imageRef = useRef();
 

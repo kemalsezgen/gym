@@ -37,6 +37,9 @@ export default function Navbar() {
                   <a href='/chat'>Messages</a>
                 </li>
                 <li>
+                  <a href='/videocall'>Video Call</a>
+                </li>
+                <li>
                   <a href='/' onClick={handleLogout}>Çıkış yap</a>
                 </li>
               </ul>

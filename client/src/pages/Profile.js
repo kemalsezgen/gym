@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -9,7 +9,6 @@ import CreatePostModal from '../components/CreatePostModal';
 import SubscribersModal from '../components/SubscribersModal';
 import FollowingModal from '../components/FollowingModal';
 import { following } from "../redux/userSlice"
-import { current } from '@reduxjs/toolkit';
 
 const Profile = () => {
 
